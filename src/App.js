@@ -3,18 +3,22 @@ import Login from "./auth/Login";
 import Registe from "./auth/Register";
 
 import TopNav from "./components/TopNav";
-import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {BrowserRouter, Switch, Route, Routes} from "react-router-dom";
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <BrowserRouter>
-    <TopNav />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Registe} />
-      </Switch>
-    </BrowserRouter>
+    <div>
+       <TopNav />
+        <ToastContainer position="top-center" theme="light"/>
+        <Routes>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
+          <Route path="/register" element={<Registe/>}></Route>
+        </Routes>
+    </div>
   );
 }
 

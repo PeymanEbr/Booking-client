@@ -8,14 +8,17 @@ import { Provider } from 'react-redux';
 import {composeWithDevTools} from '@redux-devtools/extension';
 
 import rootReducer from './reducers';
+import { BrowserRouter } from 'react-router-dom';
 
 const store = createStore(rootReducer, composeWithDevTools());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <div>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
-  </React.StrictMode>
+  </div>
 );
